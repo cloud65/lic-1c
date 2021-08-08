@@ -114,7 +114,7 @@ function lic_activate {
 		if [[ "$RES" == *$SUCCED* ]]
 		then
 			echo $RES
-			exit			
+			return			
 		fi
 		
 		PIN=$3
@@ -123,7 +123,7 @@ function lic_activate {
 		if [[ "$RES" == *$SUCCED* ]]
 		then
 			echo $RES
-			exit			
+			return			
 		fi
 		
 		PIN=$4
@@ -132,7 +132,7 @@ function lic_activate {
 		if [[ "$RES" == *$SUCCED* ]]
 		then
 			echo $RES
-			exit			
+			return			
 		fi
 		
 		PIN=$3
@@ -142,7 +142,7 @@ function lic_activate {
 		if [[ "$RES" == *$SUCCED* ]]
 		then
 			echo $RES
-			exit			
+			return			
 		fi
 		
 		PIN=$4
@@ -152,7 +152,7 @@ function lic_activate {
 		if [[ "$RES" == *$SUCCED* ]]
 		then
 			echo $RES
-			exit			
+			return			
 		fi
 		
 	fi
@@ -163,7 +163,7 @@ function lic_activate {
 	if [[ "$RES" == *$SUCCED* ]]
 	then
 		echo $RES
-		exit			
+		return			
 	fi
 	
 	PIN=$3
@@ -172,7 +172,7 @@ function lic_activate {
 	if [[ "$RES" == *$SUCCED* ]]
 	then
 		echo $RES
-		exit			
+		return 			
 	fi
 	
 	PIN=$4
@@ -181,7 +181,7 @@ function lic_activate {
 	if [[ "$RES" == *$SUCCED* ]]
 	then
 		echo $RES
-		exit			
+		return 			
 	fi
 
 }
@@ -198,12 +198,10 @@ function lic_activate_list {
 		
 		lic_activate $NUMBER $PIN_1 $PIN_2 $PIN_3
 		
-		exit
+				
 	done
 }
 #************************************************************************************
-
-clear
 
 LIC_FILE=~/license.txt
 LIC_DATA=$(cat ~/LicData.txt)

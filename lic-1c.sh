@@ -83,8 +83,9 @@ function lic_activate {
 	
 	SERIAL=$1
 	
-	PREV_PIN=$(echo "$LIC_LIST" | grep $SERIAL | cut -d"-" -f1)
 	
+	
+	PREV_PIN=$(echo "$LIC_LIST" | grep $SERIAL | cut -d"-" -f1)
 	
 	apartment=$(get_param "--apartment " "$(get_apartment)")
 	building=$(get_param "--building " "$(get_building)")
@@ -155,6 +156,12 @@ function lic_activate {
 			return			
 		fi
 		
+	fi
+	
+	$RING_PATH/ring license validate --name $(echo "$LIC_LIST" | grep $SERIAL | cut -d" " -f1)
+	if [ $? -eq 0 ]
+	then
+		return
 	fi
 	
 	PIN=$2
